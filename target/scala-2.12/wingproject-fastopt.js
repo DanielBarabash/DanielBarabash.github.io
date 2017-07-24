@@ -1344,8 +1344,7 @@ function $f_sci_VectorPointer__initFrom__sci_VectorPointer__I__V($thiz, that, de
 /** @constructor */
 function $c_Lexample_Config$() {
   $c_O.call(this);
-  this.rotationSpeed$1 = 0.0;
-  this.colladaLoadedScene$1 = null
+  this.rotationSpeed$1 = 0.0
 }
 $c_Lexample_Config$.prototype = new $h_O();
 $c_Lexample_Config$.prototype.constructor = $c_Lexample_Config$;
@@ -1355,30 +1354,14 @@ function $h_Lexample_Config$() {
 }
 $h_Lexample_Config$.prototype = $c_Lexample_Config$.prototype;
 $c_Lexample_Config$.prototype.init___ = (function() {
-  this.rotationSpeed$1 = 0.01;
+  this.rotationSpeed$1 = 12.0;
   return this
 });
 $c_Lexample_Config$.prototype.$$js$exported$prop$rotationSpeed__D__O = (function(x$1) {
   this.rotationSpeed$1 = x$1
 });
-$c_Lexample_Config$.prototype.$$js$exported$prop$colladaLoadedScene__O__O = (function(x$1) {
-  this.colladaLoadedScene$1 = x$1
-});
 $c_Lexample_Config$.prototype.$$js$exported$prop$rotationSpeed__O = (function() {
   return this.rotationSpeed$1
-});
-$c_Lexample_Config$.prototype.$$js$exported$prop$colladaLoadedScene__O = (function() {
-  return this.colladaLoadedScene$1
-});
-Object.defineProperty($c_Lexample_Config$.prototype, "colladaLoadedScene", {
-  "get": (function() {
-    return this.$$js$exported$prop$colladaLoadedScene__O()
-  }),
-  "set": (function(arg$1) {
-    var prep0 = arg$1;
-    this.$$js$exported$prop$colladaLoadedScene__O__O(prep0)
-  }),
-  "configurable": true
 });
 Object.defineProperty($c_Lexample_Config$.prototype, "rotationSpeed", {
   "get": (function() {
@@ -1405,90 +1388,155 @@ function $m_Lexample_Config$() {
   return $n_Lexample_Config$
 }
 /** @constructor */
-function $c_Lexample_Main$() {
+function $c_Lexample_Constants$() {
   $c_O.call(this);
-  this.cube$1 = null
+  this.PI$1 = 0.0
 }
-$c_Lexample_Main$.prototype = new $h_O();
-$c_Lexample_Main$.prototype.constructor = $c_Lexample_Main$;
+$c_Lexample_Constants$.prototype = new $h_O();
+$c_Lexample_Constants$.prototype.constructor = $c_Lexample_Constants$;
 /** @constructor */
-function $h_Lexample_Main$() {
+function $h_Lexample_Constants$() {
   /*<skip>*/
 }
-$h_Lexample_Main$.prototype = $c_Lexample_Main$.prototype;
-$c_Lexample_Main$.prototype.init___ = (function() {
-  $n_Lexample_Main$ = this;
-  this.cube$1 = this.createCube__Lorg_denigma_threejs_Mesh();
+$h_Lexample_Constants$.prototype = $c_Lexample_Constants$.prototype;
+$c_Lexample_Constants$.prototype.init___ = (function() {
+  this.PI$1 = 3.141592653;
   return this
 });
-$c_Lexample_Main$.prototype.createRenderer__Lorg_denigma_threejs_WebGLRenderer = (function() {
-  var renderer = new $g.THREE.WebGLRenderer();
-  renderer.setSize((0.75 * $uD($m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().innerWidth)), (0.75 * $uD($m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().innerHeight)));
-  $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().body.appendChild(renderer.domElement);
-  return renderer
+var $d_Lexample_Constants$ = new $TypeData().initClass({
+  Lexample_Constants$: 0
+}, false, "example.Constants$", {
+  Lexample_Constants$: 1,
+  O: 1
 });
-$c_Lexample_Main$.prototype.createCamera__Lorg_denigma_threejs_PerspectiveCamera = (function() {
-  var camera = new $g.THREE.PerspectiveCamera(75.0, ($uD($m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().innerWidth) / $uD($m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().innerHeight)), 0.1, 1000.0);
-  camera.position.z = 1.5;
-  return camera
-});
-$c_Lexample_Main$.prototype.animate__D__F0__V = (function(timestamp, sceneUpdateCallback) {
-  sceneUpdateCallback.apply__O();
-  $m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().requestAnimationFrame((function(sceneUpdateCallback$1) {
-    return (function(arg1$2) {
-      var arg1 = $uD(arg1$2);
-      var this$1 = $m_Lexample_Main$();
-      this$1.animate__D__F0__V(arg1, sceneUpdateCallback$1)
-    })
-  })(sceneUpdateCallback))
-});
-$c_Lexample_Main$.prototype.main__AT__V = (function(args) {
-  var renderer = this.createRenderer__Lorg_denigma_threejs_WebGLRenderer();
-  var camera = this.createCamera__Lorg_denigma_threejs_PerspectiveCamera();
-  var this$2 = this.loadSceneFromCollada__T__s_concurrent_Future("models/test1.dae");
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, renderer$1, camera$1) {
-    return (function(scene$2) {
-      scene$2.autoUpdate = true;
-      var light = new $g.THREE.AmbientLight(1.6777215E7);
-      light.intensity = 1.2;
-      scene$2.add(light);
-      var light2 = new $g.THREE.PointLight(1.6777215E7, 10.0, 20.0);
-      light2.position.set(6.0, 6.0, 9.0);
-      scene$2.add(light2);
-      var propeller = scene$2.getObjectByName("Propeller", true);
-      scene$2.rotation.x = 30.0;
-      scene$2.rotation.z = 31.0;
-      $this.animate__D__F0__V(0.0, new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function($this$1, renderer$1$1, camera$1$1, propeller$1, scene) {
-        return (function() {
-          var ev$1 = propeller$1.rotation;
-          ev$1.y = ($uD(ev$1.y) + (10.0 * $m_Lexample_Config$().rotationSpeed$1));
-          renderer$1$1.render(scene, camera$1$1)
-        })
-      })($this, renderer$1, camera$1, propeller, scene$2)))
-    })
-  })(this, renderer, camera));
-  var executor = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContext();
-  $f_s_concurrent_Future__foreach__F1__s_concurrent_ExecutionContext__V(this$2, f, executor)
-});
-$c_Lexample_Main$.prototype.createCube__Lorg_denigma_threejs_Mesh = (function() {
-  var geometry = new $g.THREE.BoxGeometry(1.0, 1.0, 1.0);
-  var mat = {
-    "color": 65280
+$c_Lexample_Constants$.prototype.$classData = $d_Lexample_Constants$;
+var $n_Lexample_Constants$ = (void 0);
+function $m_Lexample_Constants$() {
+  if ((!$n_Lexample_Constants$)) {
+    $n_Lexample_Constants$ = new $c_Lexample_Constants$().init___()
   };
-  var material = new $g.THREE.MeshBasicMaterial(mat);
-  return new $g.THREE.Mesh(geometry, material)
+  return $n_Lexample_Constants$
+}
+/** @constructor */
+function $c_Lexample_InputHelper$() {
+  $c_O.call(this)
+}
+$c_Lexample_InputHelper$.prototype = new $h_O();
+$c_Lexample_InputHelper$.prototype.constructor = $c_Lexample_InputHelper$;
+/** @constructor */
+function $h_Lexample_InputHelper$() {
+  /*<skip>*/
+}
+$h_Lexample_InputHelper$.prototype = $c_Lexample_InputHelper$.prototype;
+$c_Lexample_InputHelper$.prototype.init___ = (function() {
+  return this
 });
-$c_Lexample_Main$.prototype.loadSceneFromCollada__T__s_concurrent_Future = (function(url) {
-  var loader = new $g.THREE.ColladaLoader();
-  var scenePromise = new $c_s_concurrent_impl_Promise$DefaultPromise().init___();
-  loader.load(url, (function(scenePromise$1) {
+$c_Lexample_InputHelper$.prototype.example$InputHelper$$$anonfun$initKeyboardListeners$1__Lorg_scalajs_dom_raw_KeyboardEvent__O = (function(event) {
+  var x1 = $uI(event.keyCode);
+  switch (x1) {
+    case 87: {
+      $m_Lexample_WorldState$().moveForward$1 = true;
+      return (void 0);
+      break
+    }
+    case 83: {
+      $m_Lexample_WorldState$().moveBackward$1 = true;
+      return (void 0);
+      break
+    }
+    case 65: {
+      $m_Lexample_WorldState$().moveLeft$1 = true;
+      return (void 0);
+      break
+    }
+    case 68: {
+      $m_Lexample_WorldState$().moveRight$1 = true;
+      return (void 0);
+      break
+    }
+    default: {
+      return (void 0)
+    }
+  }
+});
+$c_Lexample_InputHelper$.prototype.initKeyboardListeners__V = (function() {
+  var this$2 = $m_s_Console$();
+  var this$3 = $as_Ljava_io_PrintStream(this$2.outVar$2.v$1);
+  this$3.java$lang$JSConsoleBasedPrintStream$$printString__T__V("init keyboard listeners..\n");
+  $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().addEventListener("keydown", (function(arg1$2) {
+    return $m_Lexample_InputHelper$().example$InputHelper$$$anonfun$initKeyboardListeners$1__Lorg_scalajs_dom_raw_KeyboardEvent__O(arg1$2)
+  }), false);
+  $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().addEventListener("keyup", (function(arg1$2$1) {
+    return $m_Lexample_InputHelper$().example$InputHelper$$$anonfun$initKeyboardListeners$2__Lorg_scalajs_dom_raw_KeyboardEvent__O(arg1$2$1)
+  }), false)
+});
+$c_Lexample_InputHelper$.prototype.example$InputHelper$$$anonfun$initKeyboardListeners$2__Lorg_scalajs_dom_raw_KeyboardEvent__O = (function(event) {
+  var x1 = $uI(event.keyCode);
+  switch (x1) {
+    case 87: {
+      $m_Lexample_WorldState$().moveForward$1 = false;
+      return (void 0);
+      break
+    }
+    case 83: {
+      $m_Lexample_WorldState$().moveBackward$1 = false;
+      return (void 0);
+      break
+    }
+    case 65: {
+      $m_Lexample_WorldState$().moveLeft$1 = false;
+      return (void 0);
+      break
+    }
+    case 68: {
+      $m_Lexample_WorldState$().moveRight$1 = false;
+      return (void 0);
+      break
+    }
+    default: {
+      return (void 0)
+    }
+  }
+});
+var $d_Lexample_InputHelper$ = new $TypeData().initClass({
+  Lexample_InputHelper$: 0
+}, false, "example.InputHelper$", {
+  Lexample_InputHelper$: 1,
+  O: 1
+});
+$c_Lexample_InputHelper$.prototype.$classData = $d_Lexample_InputHelper$;
+var $n_Lexample_InputHelper$ = (void 0);
+function $m_Lexample_InputHelper$() {
+  if ((!$n_Lexample_InputHelper$)) {
+    $n_Lexample_InputHelper$ = new $c_Lexample_InputHelper$().init___()
+  };
+  return $n_Lexample_InputHelper$
+}
+/** @constructor */
+function $c_Lexample_Loaders$() {
+  $c_O.call(this)
+}
+$c_Lexample_Loaders$.prototype = new $h_O();
+$c_Lexample_Loaders$.prototype.constructor = $c_Lexample_Loaders$;
+/** @constructor */
+function $h_Lexample_Loaders$() {
+  /*<skip>*/
+}
+$h_Lexample_Loaders$.prototype = $c_Lexample_Loaders$.prototype;
+$c_Lexample_Loaders$.prototype.init___ = (function() {
+  return this
+});
+$c_Lexample_Loaders$.prototype.loadTexture__T__s_concurrent_Future = (function(textureUrl) {
+  var loader = new $g.THREE.TextureLoader();
+  var texturePromise = new $c_s_concurrent_impl_Promise$DefaultPromise().init___();
+  loader.load(textureUrl, (function(texturePromise$1) {
     return (function(arg1$2) {
-      $m_Lexample_Main$().example$Main$$$anonfun$loadSceneFromCollada$1__sjs_js_Any__s_concurrent_Promise__V(arg1$2, scenePromise$1)
+      $m_Lexample_Loaders$().example$Loaders$$$anonfun$loadTexture$1__Lorg_denigma_threejs_Texture__s_concurrent_Promise__V(arg1$2, texturePromise$1)
     })
-  })(scenePromise));
-  return scenePromise
+  })(texturePromise));
+  return texturePromise
 });
-$c_Lexample_Main$.prototype.example$Main$$$anonfun$loadSceneFromCollada$1__sjs_js_Any__s_concurrent_Promise__V = (function(collada, scenePromise$1) {
+$c_Lexample_Loaders$.prototype.example$Loaders$$$anonfun$loadSceneFromCollada$1__sjs_js_Any__s_concurrent_Promise__V = (function(collada, scenePromise$1) {
   var colladaScene = collada.scene;
   try {
     var result = new $c_s_util_Success().init___O(colladaScene)
@@ -1512,6 +1560,167 @@ $c_Lexample_Main$.prototype.example$Main$$$anonfun$loadSceneFromCollada$1__sjs_j
   };
   $f_s_concurrent_Promise__complete__s_util_Try__s_concurrent_Promise(scenePromise$1, result)
 });
+$c_Lexample_Loaders$.prototype.example$Loaders$$$anonfun$loadTexture$1__Lorg_denigma_threejs_Texture__s_concurrent_Promise__V = (function(texture, texturePromise$1) {
+  try {
+    var result = new $c_s_util_Success().init___O(texture)
+  } catch (e) {
+    var e$2 = $m_sjsr_package$().wrapJavaScriptException__O__jl_Throwable(e);
+    if ((e$2 !== null)) {
+      matchEnd8: {
+        var result;
+        var o11 = $m_s_util_control_NonFatal$().unapply__jl_Throwable__s_Option(e$2);
+        if ((!o11.isEmpty__Z())) {
+          var e$3 = $as_jl_Throwable(o11.get__O());
+          var result = new $c_s_util_Failure().init___jl_Throwable(e$3);
+          break matchEnd8
+        };
+        throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(e$2)
+      }
+    } else {
+      var result;
+      throw e
+    }
+  };
+  $f_s_concurrent_Promise__complete__s_util_Try__s_concurrent_Promise(texturePromise$1, result)
+});
+$c_Lexample_Loaders$.prototype.loadSceneFromCollada__T__s_concurrent_Future = (function(sceneUrl) {
+  var loader = new $g.THREE.ColladaLoader();
+  var scenePromise = new $c_s_concurrent_impl_Promise$DefaultPromise().init___();
+  loader.load(sceneUrl, (function(scenePromise$1) {
+    return (function(arg1$2) {
+      $m_Lexample_Loaders$().example$Loaders$$$anonfun$loadSceneFromCollada$1__sjs_js_Any__s_concurrent_Promise__V(arg1$2, scenePromise$1)
+    })
+  })(scenePromise));
+  return scenePromise
+});
+var $d_Lexample_Loaders$ = new $TypeData().initClass({
+  Lexample_Loaders$: 0
+}, false, "example.Loaders$", {
+  Lexample_Loaders$: 1,
+  O: 1
+});
+$c_Lexample_Loaders$.prototype.$classData = $d_Lexample_Loaders$;
+var $n_Lexample_Loaders$ = (void 0);
+function $m_Lexample_Loaders$() {
+  if ((!$n_Lexample_Loaders$)) {
+    $n_Lexample_Loaders$ = new $c_Lexample_Loaders$().init___()
+  };
+  return $n_Lexample_Loaders$
+}
+/** @constructor */
+function $c_Lexample_Main$() {
+  $c_O.call(this)
+}
+$c_Lexample_Main$.prototype = new $h_O();
+$c_Lexample_Main$.prototype.constructor = $c_Lexample_Main$;
+/** @constructor */
+function $h_Lexample_Main$() {
+  /*<skip>*/
+}
+$h_Lexample_Main$.prototype = $c_Lexample_Main$.prototype;
+$c_Lexample_Main$.prototype.init___ = (function() {
+  return this
+});
+$c_Lexample_Main$.prototype.clamp__D__D__D__D = (function(v, min, max) {
+  return ((v < min) ? min : ((v > max) ? max : v))
+});
+$c_Lexample_Main$.prototype.animate__D__F0__V = (function(timestamp, sceneUpdateCallback) {
+  sceneUpdateCallback.apply__O();
+  $m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().requestAnimationFrame((function(sceneUpdateCallback$1) {
+    return (function(arg1$2) {
+      var arg1 = $uD(arg1$2);
+      var this$1 = $m_Lexample_Main$();
+      this$1.animate__D__F0__V(arg1, sceneUpdateCallback$1)
+    })
+  })(sceneUpdateCallback))
+});
+$c_Lexample_Main$.prototype.main__AT__V = (function(args) {
+  $m_Lexample_InputHelper$().initKeyboardListeners__V();
+  var plane = $m_Lexample_SceneFactory$().createPlane__Lorg_denigma_threejs_Mesh();
+  plane.rotation.x = (-($m_Lexample_Constants$().PI$1 / 2.0));
+  plane.scale.set(2.0, 2.0, 2.0);
+  var renderer = $m_Lexample_SceneFactory$().createRenderer__Lorg_denigma_threejs_WebGLRenderer();
+  var camera = $m_Lexample_SceneFactory$().createCamera__Lorg_denigma_threejs_PerspectiveCamera();
+  var this$3 = this.loadAircraft__s_concurrent_Future();
+  var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, plane$1, renderer$1, camera$1) {
+    return (function(aircraft$2) {
+      var this$2 = $m_Lexample_Loaders$().loadTexture__T__s_concurrent_Future("textures/test_surface.png");
+      var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this$1, plane$1$1, renderer$1$1, camera$1$1, aircraft) {
+        return (function(planeTexture$2) {
+          var scene = new $g.THREE.Scene();
+          scene.autoUpdate = true;
+          var light = new $g.THREE.AmbientLight(1.6777215E7);
+          light.intensity = 1.2;
+          scene.add(light);
+          var directionalLight = new $g.THREE.DirectionalLight(1.6777215E7, 0.8);
+          directionalLight.position.set((-1.0), 1.0, 0.0);
+          scene.add(directionalLight);
+          var propeller = aircraft.getObjectByName("Propeller", true);
+          scene.add(aircraft);
+          scene.add(plane$1$1);
+          planeTexture$2.wrapS = $g.THREE.RepeatWrapping;
+          planeTexture$2.wrapT = $g.THREE.RepeatWrapping;
+          planeTexture$2.repeat.set(20.0, 20.0);
+          planeTexture$2.anisotropy = 16.0;
+          plane$1$1.material = new $g.THREE.MeshBasicMaterial({
+            "map": planeTexture$2
+          });
+          var clock = new $g.THREE.Clock();
+          $this$1.animate__D__F0__V(0.0, new $c_sjsr_AnonFunction0().init___sjs_js_Function0((function($this$2, renderer$1$2, camera$1$2, scene$1, propeller$1, clock$1, aircraft$1) {
+            return (function() {
+              var timeDelta = $uD(clock$1.getDelta());
+              var ev$1 = propeller$1.rotation;
+              ev$1.y = ($uD(ev$1.y) + ($m_Lexample_Config$().rotationSpeed$1 * timeDelta));
+              if ($m_Lexample_WorldState$().moveLeft$1) {
+                $m_Lexample_WorldState$().vectorRotationAngleY$1 = ($m_Lexample_WorldState$().vectorRotationAngleY$1 + (0.6 * timeDelta))
+              };
+              if ($m_Lexample_WorldState$().moveRight$1) {
+                $m_Lexample_WorldState$().vectorRotationAngleY$1 = ($m_Lexample_WorldState$().vectorRotationAngleY$1 - (0.6 * timeDelta))
+              };
+              if ($m_Lexample_WorldState$().moveBackward$1) {
+                var newVelocityZ = ($m_Lexample_WorldState$().aircraftSpeed$1 - ($m_Lexample_WorldState$().aircraftSlowdown$1 * timeDelta));
+                $m_Lexample_WorldState$().aircraftSpeed$1 = $this$2.clamp__D__D__D__D(newVelocityZ, 0.0, 8.0)
+              };
+              if ($m_Lexample_WorldState$().moveForward$1) {
+                var newVelocityZ$2 = ($m_Lexample_WorldState$().aircraftSpeed$1 + ($m_Lexample_WorldState$().aircraftAcceleration$1 * timeDelta));
+                $m_Lexample_WorldState$().aircraftSpeed$1 = $this$2.clamp__D__D__D__D(newVelocityZ$2, 0.0, 8.0)
+              };
+              var rotatedVelocityVector = new $g.THREE.Vector3(0.0, 0.0, 0.0);
+              rotatedVelocityVector.copy($m_Lexample_WorldState$().aircraftVelocityVector$1);
+              var axis = new $g.THREE.Vector3(0.0, 1.0, 0.0);
+              rotatedVelocityVector.applyAxisAngle(axis, $m_Lexample_WorldState$().vectorRotationAngleY$1);
+              aircraft$1.rotation.y = $m_Lexample_WorldState$().vectorRotationAngleY$1;
+              aircraft$1.position.x = ($uD(aircraft$1.position.x) + (($uD(rotatedVelocityVector.x) * $m_Lexample_WorldState$().aircraftSpeed$1) * timeDelta));
+              aircraft$1.position.y = ($uD(aircraft$1.position.y) + (($uD(rotatedVelocityVector.y) * $m_Lexample_WorldState$().aircraftSpeed$1) * timeDelta));
+              aircraft$1.position.z = ($uD(aircraft$1.position.z) + (($uD(rotatedVelocityVector.z) * $m_Lexample_WorldState$().aircraftSpeed$1) * timeDelta));
+              camera$1$2.position.z = (2.3 + $uD(aircraft$1.position.z));
+              camera$1$2.rotation.y = $m_Lexample_WorldState$().vectorRotationAngleY$1;
+              renderer$1$2.render(scene$1, camera$1$2)
+            })
+          })($this$1, renderer$1$1, camera$1$1, scene, propeller, clock, aircraft)))
+        })
+      })($this, plane$1, renderer$1, camera$1, aircraft$2));
+      var executor = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContext();
+      $f_s_concurrent_Future__foreach__F1__s_concurrent_ExecutionContext__V(this$2, f, executor)
+    })
+  })(this, plane, renderer, camera));
+  var executor$1 = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContext();
+  $f_s_concurrent_Future__foreach__F1__s_concurrent_ExecutionContext__V(this$3, f$1, executor$1)
+});
+$c_Lexample_Main$.prototype.loadAircraft__s_concurrent_Future = (function() {
+  var this$1 = $m_Lexample_Loaders$().loadSceneFromCollada__T__s_concurrent_Future("models/test1.dae");
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this) {
+    return (function(aircraft$2) {
+      aircraft$2.rotation.y = $m_Lexample_Constants$().PI$1;
+      aircraft$2.rotation.x = ($m_Lexample_Constants$().PI$1 / 2.0);
+      var o = new $g.THREE.Object3D();
+      o.add(aircraft$2);
+      return o
+    })
+  })(this));
+  var executor = $m_s_concurrent_ExecutionContext$Implicits$().global__s_concurrent_ExecutionContext();
+  return $f_s_concurrent_Future__map__F1__s_concurrent_ExecutionContext__s_concurrent_Future(this$1, f, executor)
+});
 var $d_Lexample_Main$ = new $TypeData().initClass({
   Lexample_Main$: 0
 }, false, "example.Main$", {
@@ -1525,6 +1734,101 @@ function $m_Lexample_Main$() {
     $n_Lexample_Main$ = new $c_Lexample_Main$().init___()
   };
   return $n_Lexample_Main$
+}
+/** @constructor */
+function $c_Lexample_SceneFactory$() {
+  $c_O.call(this)
+}
+$c_Lexample_SceneFactory$.prototype = new $h_O();
+$c_Lexample_SceneFactory$.prototype.constructor = $c_Lexample_SceneFactory$;
+/** @constructor */
+function $h_Lexample_SceneFactory$() {
+  /*<skip>*/
+}
+$h_Lexample_SceneFactory$.prototype = $c_Lexample_SceneFactory$.prototype;
+$c_Lexample_SceneFactory$.prototype.init___ = (function() {
+  return this
+});
+$c_Lexample_SceneFactory$.prototype.createRenderer__Lorg_denigma_threejs_WebGLRenderer = (function() {
+  var renderer = new $g.THREE.WebGLRenderer();
+  renderer.setSize((0.75 * $uD($m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().innerWidth)), (0.75 * $uD($m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().innerHeight)));
+  $m_Lorg_scalajs_dom_package$().document__Lorg_scalajs_dom_raw_HTMLDocument().body.appendChild(renderer.domElement);
+  return renderer
+});
+$c_Lexample_SceneFactory$.prototype.createPlane__Lorg_denigma_threejs_Mesh = (function() {
+  var geometry = new $g.THREE.PlaneGeometry(100.0, 100.0);
+  var material = new $g.THREE.MeshBasicMaterial({
+    "color": 16776960
+  });
+  return new $g.THREE.Mesh(geometry, material)
+});
+$c_Lexample_SceneFactory$.prototype.createCamera__Lorg_denigma_threejs_PerspectiveCamera = (function() {
+  var camera = new $g.THREE.PerspectiveCamera(75.0, ($uD($m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().innerWidth) / $uD($m_Lorg_scalajs_dom_package$().window__Lorg_scalajs_dom_raw_Window().innerHeight)), 0.1, 1000.0);
+  camera.position.z = 2.3;
+  camera.position.y = 1.0;
+  camera.rotation.x = (-0.25);
+  return camera
+});
+var $d_Lexample_SceneFactory$ = new $TypeData().initClass({
+  Lexample_SceneFactory$: 0
+}, false, "example.SceneFactory$", {
+  Lexample_SceneFactory$: 1,
+  O: 1
+});
+$c_Lexample_SceneFactory$.prototype.$classData = $d_Lexample_SceneFactory$;
+var $n_Lexample_SceneFactory$ = (void 0);
+function $m_Lexample_SceneFactory$() {
+  if ((!$n_Lexample_SceneFactory$)) {
+    $n_Lexample_SceneFactory$ = new $c_Lexample_SceneFactory$().init___()
+  };
+  return $n_Lexample_SceneFactory$
+}
+/** @constructor */
+function $c_Lexample_WorldState$() {
+  $c_O.call(this);
+  this.moveForward$1 = false;
+  this.moveBackward$1 = false;
+  this.moveLeft$1 = false;
+  this.moveRight$1 = false;
+  this.aircraftVelocityVector$1 = null;
+  this.vectorRotationAngleY$1 = 0.0;
+  this.aircraftSpeed$1 = 0.0;
+  this.aircraftSlowdown$1 = 0.0;
+  this.aircraftAcceleration$1 = 0.0
+}
+$c_Lexample_WorldState$.prototype = new $h_O();
+$c_Lexample_WorldState$.prototype.constructor = $c_Lexample_WorldState$;
+/** @constructor */
+function $h_Lexample_WorldState$() {
+  /*<skip>*/
+}
+$h_Lexample_WorldState$.prototype = $c_Lexample_WorldState$.prototype;
+$c_Lexample_WorldState$.prototype.init___ = (function() {
+  $n_Lexample_WorldState$ = this;
+  this.moveForward$1 = false;
+  this.moveBackward$1 = false;
+  this.moveLeft$1 = false;
+  this.moveRight$1 = false;
+  this.aircraftVelocityVector$1 = new $g.THREE.Vector3(0.0, 0.0, (-1.0));
+  this.vectorRotationAngleY$1 = 0.0;
+  this.aircraftSpeed$1 = 0.0;
+  this.aircraftSlowdown$1 = 6.0;
+  this.aircraftAcceleration$1 = 9.0;
+  return this
+});
+var $d_Lexample_WorldState$ = new $TypeData().initClass({
+  Lexample_WorldState$: 0
+}, false, "example.WorldState$", {
+  Lexample_WorldState$: 1,
+  O: 1
+});
+$c_Lexample_WorldState$.prototype.$classData = $d_Lexample_WorldState$;
+var $n_Lexample_WorldState$ = (void 0);
+function $m_Lexample_WorldState$() {
+  if ((!$n_Lexample_WorldState$)) {
+    $n_Lexample_WorldState$ = new $c_Lexample_WorldState$().init___()
+  };
+  return $n_Lexample_WorldState$
 }
 /** @constructor */
 function $c_Lorg_scalajs_dom_package$() {
@@ -1714,6 +2018,17 @@ function $m_jl_System$() {
   return $n_jl_System$
 }
 /** @constructor */
+function $c_s_DeprecatedConsole() {
+  $c_O.call(this)
+}
+$c_s_DeprecatedConsole.prototype = new $h_O();
+$c_s_DeprecatedConsole.prototype.constructor = $c_s_DeprecatedConsole;
+/** @constructor */
+function $h_s_DeprecatedConsole() {
+  /*<skip>*/
+}
+$h_s_DeprecatedConsole.prototype = $c_s_DeprecatedConsole.prototype;
+/** @constructor */
 function $c_s_LowPriorityImplicits() {
   $c_O.call(this)
 }
@@ -1771,6 +2086,15 @@ function $f_s_concurrent_Future__foreach__F1__s_concurrent_ExecutionContext__V($
       x$1.foreach__F1__V(f$1)
     })
   })($thiz, f)), executor)
+}
+function $f_s_concurrent_Future__map__F1__s_concurrent_ExecutionContext__s_concurrent_Future($thiz, f, executor) {
+  var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, f$1) {
+    return (function(x$2$2) {
+      var x$2 = $as_s_util_Try(x$2$2);
+      return x$2.map__F1__s_util_Try(f$1)
+    })
+  })($thiz, f));
+  return $f_s_concurrent_impl_Promise__transform__F1__s_concurrent_ExecutionContext__s_concurrent_Future($thiz, f$2, executor)
 }
 /** @constructor */
 function $c_s_concurrent_impl_Promise$() {
@@ -2054,6 +2378,32 @@ function $m_s_reflect_package$() {
   };
   return $n_s_reflect_package$
 }
+/** @constructor */
+function $c_s_util_DynamicVariable() {
+  $c_O.call(this);
+  this.v$1 = null
+}
+$c_s_util_DynamicVariable.prototype = new $h_O();
+$c_s_util_DynamicVariable.prototype.constructor = $c_s_util_DynamicVariable;
+/** @constructor */
+function $h_s_util_DynamicVariable() {
+  /*<skip>*/
+}
+$h_s_util_DynamicVariable.prototype = $c_s_util_DynamicVariable.prototype;
+$c_s_util_DynamicVariable.prototype.toString__T = (function() {
+  return (("DynamicVariable(" + this.v$1) + ")")
+});
+$c_s_util_DynamicVariable.prototype.init___O = (function(init) {
+  this.v$1 = init;
+  return this
+});
+var $d_s_util_DynamicVariable = new $TypeData().initClass({
+  s_util_DynamicVariable: 0
+}, false, "scala.util.DynamicVariable", {
+  s_util_DynamicVariable: 1,
+  O: 1
+});
+$c_s_util_DynamicVariable.prototype.$classData = $d_s_util_DynamicVariable;
 /** @constructor */
 function $c_s_util_control_Breaks() {
   $c_O.call(this);
@@ -4226,6 +4576,43 @@ $c_ju_concurrent_atomic_AtomicReference.prototype.init___O = (function(value) {
   return this
 });
 /** @constructor */
+function $c_s_Console$() {
+  $c_s_DeprecatedConsole.call(this);
+  this.outVar$2 = null;
+  this.errVar$2 = null;
+  this.inVar$2 = null
+}
+$c_s_Console$.prototype = new $h_s_DeprecatedConsole();
+$c_s_Console$.prototype.constructor = $c_s_Console$;
+/** @constructor */
+function $h_s_Console$() {
+  /*<skip>*/
+}
+$h_s_Console$.prototype = $c_s_Console$.prototype;
+$c_s_Console$.prototype.init___ = (function() {
+  $n_s_Console$ = this;
+  this.outVar$2 = new $c_s_util_DynamicVariable().init___O($m_jl_System$().out$1);
+  this.errVar$2 = new $c_s_util_DynamicVariable().init___O($m_jl_System$().err$1);
+  this.inVar$2 = new $c_s_util_DynamicVariable().init___O(null);
+  return this
+});
+var $d_s_Console$ = new $TypeData().initClass({
+  s_Console$: 0
+}, false, "scala.Console$", {
+  s_Console$: 1,
+  s_DeprecatedConsole: 1,
+  O: 1,
+  s_io_AnsiColor: 1
+});
+$c_s_Console$.prototype.$classData = $d_s_Console$;
+var $n_s_Console$ = (void 0);
+function $m_s_Console$() {
+  if ((!$n_s_Console$)) {
+    $n_s_Console$ = new $c_s_Console$().init___()
+  };
+  return $n_s_Console$
+}
+/** @constructor */
 function $c_s_Predef$() {
   $c_s_LowPriorityImplicits.call(this);
   this.Map$2 = null;
@@ -4535,6 +4922,34 @@ function $f_s_concurrent_impl_Promise__toString__T($thiz) {
       return "Future(<not completed>)"
     } else {
       throw new $c_s_MatchError().init___O(x1)
+    }
+  }
+}
+function $f_s_concurrent_impl_Promise__transform__F1__s_concurrent_ExecutionContext__s_concurrent_Future($thiz, f, executor) {
+  var p = new $c_s_concurrent_impl_Promise$DefaultPromise().init___();
+  $thiz.onComplete__F1__s_concurrent_ExecutionContext__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($this, f$1, p$1) {
+    return (function(result$2) {
+      var result = $as_s_util_Try(result$2);
+      var result$1 = $f_s_concurrent_impl_Promise__liftedTree1$1__ps_concurrent_impl_Promise__F1__s_util_Try__s_util_Try($this, f$1, result);
+      return $as_s_concurrent_impl_Promise$DefaultPromise($f_s_concurrent_Promise__complete__s_util_Try__s_concurrent_Promise(p$1, result$1))
+    })
+  })($thiz, f, p)), executor);
+  return p
+}
+function $f_s_concurrent_impl_Promise__liftedTree1$1__ps_concurrent_impl_Promise__F1__s_util_Try__s_util_Try($thiz, f$1, result$1) {
+  try {
+    return $as_s_util_Try(f$1.apply__O__O(result$1))
+  } catch (e) {
+    var e$2 = $m_sjsr_package$().wrapJavaScriptException__O__jl_Throwable(e);
+    if ((e$2 !== null)) {
+      var o11 = $m_s_util_control_NonFatal$().unapply__jl_Throwable__s_Option(e$2);
+      if ((!o11.isEmpty__Z())) {
+        var t = $as_jl_Throwable(o11.get__O());
+        return new $c_s_util_Failure().init___jl_Throwable(t)
+      };
+      throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(e$2)
+    } else {
+      throw e
     }
   }
 }
@@ -6821,6 +7236,18 @@ $c_Ljava_io_PrintStream.prototype.println__T__V = (function(s) {
   this.print__T__V(s);
   this.java$lang$JSConsoleBasedPrintStream$$printString__T__V("\n")
 });
+function $is_Ljava_io_PrintStream(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Ljava_io_PrintStream)))
+}
+function $as_Ljava_io_PrintStream(obj) {
+  return (($is_Ljava_io_PrintStream(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "java.io.PrintStream"))
+}
+function $isArrayOf_Ljava_io_PrintStream(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Ljava_io_PrintStream)))
+}
+function $asArrayOf_Ljava_io_PrintStream(obj, depth) {
+  return (($isArrayOf_Ljava_io_PrintStream(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Ljava.io.PrintStream;", depth))
+}
 /** @constructor */
 function $c_T2() {
   $c_O.call(this);
@@ -7115,6 +7542,9 @@ $c_s_util_Failure.prototype.productPrefix__T = (function() {
 $c_s_util_Failure.prototype.productArity__I = (function() {
   return 1
 });
+$c_s_util_Failure.prototype.map__F1__s_util_Try = (function(f) {
+  return this
+});
 $c_s_util_Failure.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
@@ -7184,6 +7614,23 @@ $c_s_util_Success.prototype.productPrefix__T = (function() {
 });
 $c_s_util_Success.prototype.productArity__I = (function() {
   return 1
+});
+$c_s_util_Success.prototype.map__F1__s_util_Try = (function(f) {
+  try {
+    return new $c_s_util_Success().init___O(f.apply__O__O(this.value$2))
+  } catch (e) {
+    var e$2 = $m_sjsr_package$().wrapJavaScriptException__O__jl_Throwable(e);
+    if ((e$2 !== null)) {
+      var o11 = $m_s_util_control_NonFatal$().unapply__jl_Throwable__s_Option(e$2);
+      if ((!o11.isEmpty__Z())) {
+        var e$3 = $as_jl_Throwable(o11.get__O());
+        return new $c_s_util_Failure().init___jl_Throwable(e$3)
+      };
+      throw $m_sjsr_package$().unwrapJavaScriptException__jl_Throwable__O(e$2)
+    } else {
+      throw e
+    }
+  }
 });
 $c_s_util_Success.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
